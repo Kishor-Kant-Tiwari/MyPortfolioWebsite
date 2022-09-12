@@ -151,12 +151,13 @@
                 <a href="#contact" class="btn btn2" onclick="notfound()">Download CV</a>
             </div>
             <div class="contact-right">
-                <form>
-                    <input type="text" name="Name" placeholder="Your Name" autocomplete="off" readonly required onclick="notenable()">
-                    <input type="email" name="email" placeholder="Your Email" autocomplete="off" readonly required onclick="notenable()">
-                    <textarea name="Message" rows="6" placeholder="Your Message" autocomplete="off" readonly required onclick="notenable()"></textarea>
-                    <button type="submit" class="btn btn2" onclick="notenable1()">Submit</button>
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" autocomplete="off" required>
+                    <input type="email" name="Email" placeholder="Your Email" autocomplete="off" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message" autocomplete="off" required></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
@@ -196,6 +197,23 @@
     function notenable(){
         alert("Not enable yet");
     }
+</script>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxnTJqFIQ_zldaUEr-zzUNRw11gJqYOEeoG4MtoRz44qseTQIgg_Ms3ATKJGCr8yH4/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+  var txt;
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        alert("Message Sent Successfully");
+        
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
 </script>
 </body>
 </html>

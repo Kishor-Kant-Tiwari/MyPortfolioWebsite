@@ -151,10 +151,10 @@
                 <a href="./201599014_Kishor Kant Tiwari_GLA University_New1.pdf" download class="btn btn2">Download CV</a>
             </div>
             <div class="contact-right">
-                <form name="submit-to-google-sheet">
-                    <input type="text" name="Name" placeholder="Your Name" autocomplete="off" required>
-                    <input type="email" name="Email" placeholder="Your Email" autocomplete="off" required>
-                    <textarea name="Message" rows="6" placeholder="Your Message" autocomplete="off" required></textarea>
+                <form name="submit-to-google-sheet" onsubmit="return validateForm()">
+                    <input type="text" name="Name" id="Name" placeholder="Your Name" autocomplete="off">
+                    <input type="email" name="Email" id="Email" placeholder="Your Email" autocomplete="off">
+                    <textarea name="Message" name="Message" id="Message" rows="6" placeholder="Your Message" autocomplete="off"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
                 <span id="msg"></span>
@@ -214,6 +214,25 @@
       })
       .catch(error => console.error('Error!', error.message))
   })
+</script>
+<script>
+    function validateForm() {
+          let a = document.forms["submit-to-google-sheet"]["Name"].value;
+          let b = document.forms["submit-to-google-sheet"]["Email"].value;
+          let c = document.forms["submit-to-google-sheet"]["Message"].value;
+          if (a == "") {
+            alert("Please Enter Your Name");
+            return false;
+          }
+          if (b == "") {
+            alert("Please Enter Your Email");
+            return false;
+          }
+          if (c == "") {
+            alert("Please Enter your Message");
+            return false;
+          }
+        }
 </script>
 </body>
 </html>

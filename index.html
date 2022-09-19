@@ -152,9 +152,9 @@
             </div>
             <div class="contact-right">
                 <form name="submit-to-google-sheet" onsubmit="return validateForm()">
-                    <input type="text" name="Name" id="Name" placeholder="Your Name" autocomplete="off">
-                    <input type="email" name="Email" id="Email" placeholder="Your Email" autocomplete="off">
-                    <textarea name="Message" name="Message" id="Message" rows="6" placeholder="Your Message" autocomplete="off"></textarea>
+                    <input type="text" name="Name" placeholder="Your Name" autocomplete="off" required>
+                    <input type="email" name="Email"  placeholder="Your Email" autocomplete="off" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message" autocomplete="off" required></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
                 <span id="msg"></span>
@@ -209,13 +209,12 @@
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
         alert("Message Sent Successfully");
-        
         form.reset()
       })
       .catch(error => console.error('Error!', error.message))
   })
 </script>
-<script>
+<!--<script>
     function validateForm() {
           let a = document.forms["submit-to-google-sheet"]["Name"].value;
           let b = document.forms["submit-to-google-sheet"]["Email"].value;
@@ -233,6 +232,6 @@
             return false;
           }
         }
-</script>
+</script>-->
 </body>
 </html>

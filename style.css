@@ -387,3 +387,9 @@ nav .fas{
     margin-top: -40px;
     display: block;
 }
+input:hover{
+    box-shadow: 1px 1px red;
+}
+textarea:hover{
+    box-shadow: 1px 1px red;
+}

@@ -41,9 +41,6 @@ nav ul li a{
     font-size: 18px;
     position: relative;
 }
-nav ul li a:hover{
-    font-weight: bold;
-}
 nav ul li a::after{
     content: '';
     width: 0;
@@ -170,6 +167,9 @@ nav ul li a:hover::after{
 .services-list div:hover{
     background: #ff004f;
     transform: translateY(-10px);
+}
+.learnmore:hover{
+    text-decoration: underline;
 }
 
 /*--portfolio--*/

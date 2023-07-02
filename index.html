@@ -7,7 +7,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
 </head>
 <body>
@@ -175,7 +175,7 @@
                     <input type="text" name="Name" placeholder="Your Name" autocomplete="off" oninvalid="this.setCustomValidity('Please enter your name')" oninput="setCustomValidity('')" required>
                     <input type="email" name="Email"  placeholder="Your Email" autocomplete="off" oninvalid="this.setCustomValidity('Please enter your valid email')" oninput="setCustomValidity('')" required>
                     <textarea name="Message" rows="6" placeholder="How Can i help you?" autocomplete="off" oninvalid="this.setCustomValidity('Please enter your message')" oninput="setCustomValidity('')" required></textarea>
-                    <button type="submit" class="btn btn2">Submit</button>
+                    <button type="submit" onclick="submit" class="btn btn2">Submit</button>
                 </form>
                 <span id="msg"></span>
             </div>
@@ -218,7 +218,7 @@
         alert("Not enable yet");
     }
 </script>
-<script>
+<!--<script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbxnTJqFIQ_zldaUEr-zzUNRw11gJqYOEeoG4MtoRz44qseTQIgg_Ms3ATKJGCr8yH4/exec'
   const form = document.forms['submit-to-google-sheet']
   const msg = document.getElementById("msg")
@@ -233,6 +233,36 @@
       })
       .catch(error => console.error('Error!', error.message))
   })
+</script>-->
+<script>
+    function submit(){
+        if (document.getElementsByClassName('name').value == "") {
+            swal('Please enter your name','','error');
+            }
+        else if (document.getElementsByClassName('email').value == "") {
+            swal('Please enter your email','','error');
+            }
+        else if (document.getElementsByClassName('message').value == "") {
+            swal('Please enter your message','','error');
+            }
+        else{
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxnTJqFIQ_zldaUEr-zzUNRw11gJqYOEeoG4MtoRz44qseTQIgg_Ms3ATKJGCr8yH4/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+  var txt;
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        swal('Success','Thank you so much','success');
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+        }
+        
+    }
 </script>
 <!--<script>
     function validateForm() {

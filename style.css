@@ -400,3 +400,6 @@ input:hover{
 textarea:hover{
     box-shadow: 1px 1px red;
 }
+.services-list div:hover{
+    box-shadow: 1px 1px goldenrod;
+}

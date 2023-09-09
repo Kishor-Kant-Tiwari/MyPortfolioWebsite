@@ -72,6 +72,20 @@ nav ul li a:hover::after{
 .header-text h1 span{
     color: #ff004f;
 }
+.typed {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation-name: typing;
+    animation-duration: 4s;
+    animation-timing-function: steps(22);
+    animation-iteration-count: infinite;
+  }
+    
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
 
 /* ----about---*/
 #about{

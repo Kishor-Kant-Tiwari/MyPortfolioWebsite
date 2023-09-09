@@ -355,7 +355,7 @@ nav .fas{
 
     }
     .header-text h1{
-        font-size: 30px;
+        font-size: 19px;
     }
     nav .fas{
         display: block;
@@ -403,6 +403,20 @@ nav .fas{
     }
 
 }
+.typed {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation-name: typing;
+    animation-duration: 4s;
+    animation-timing-function: steps(22);
+    animation-iteration-count: infinite;
+  }
+    
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
 #msg{
     color: #61b752;
     margin-top: -40px;

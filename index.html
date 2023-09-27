@@ -128,7 +128,7 @@
                 <h2>Online Examination System </h2>
                 <p>Online Examination examination system is an web application . In this examine get their user id and password when he/she successfully signup. This id is already saved in the examination server. When examine login to the server he/she get his/her profile already register. On the certain time examine gets the message to start the examination. This will be Created on Asp.Net and  C#.Net</p>
                 <!--<a href="#" class="learnmore">Learn more</a>-->
-                <p style="color: red; text-align: center;">Currently Working</P>
+                <p id="blink" style="color: rgb(167, 248, 55); text-align: center;font-weight: bold;">Currently Working</P>
                 
             </div>
         </div>
@@ -233,6 +233,15 @@
         document.getElementById(tabname).classList.add("active-tab");
     }
 
+</script>
+<script>
+    var blink = 
+            document.getElementById('blink');
+  
+        setInterval(function () {
+            blink.style.opacity = 
+            (blink.style.opacity == 0 ? 1 : 0);
+        }, 1000); 
 </script>
 <script>
     var sidemenu = document.getElementById("sidemenu");

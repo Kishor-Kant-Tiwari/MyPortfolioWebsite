@@ -190,6 +190,10 @@ nav ul li a:hover::after{
 .services-list div:hover{
     background: #ff004f;
     transform: translateY(-10px);
+    color: white;
+}
+#tet1:hover{
+    color: white;
 }
 .learnmore:hover{
     text-decoration: underline;
